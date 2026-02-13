@@ -4,6 +4,7 @@ This repository now uses a strict documentation structure:
 
 - `common/`: reusable trading knowledge used by all projects.
 - `projects/`: one directory per idea/project with complete design artifacts.
+- `strategy-builder/`: interactive GitHub Pages UI for options payoff visualization.
 - `archive/legacy/`: older drafts kept for history only.
 - `templates/`: checklists/templates for creating new project docs.
 
@@ -15,6 +16,7 @@ docs/
   common/
   projects/
     earnings-options-engine/
+  strategy-builder/
   templates/
   archive/
     legacy/
@@ -33,6 +35,10 @@ docs/
    - `implementation-roadmap.md`
    - `diagrams.md` (if architecture/data flow is non-trivial)
 4. Keep `archive/legacy/` read-only; do not place active docs there.
+
+## Interactive Tools
+
+- [Options Strategy Builder](./strategy-builder/index.html)
 
 ## Current Projects
 

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Options Strategy Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="backdrop"></div>
+  <main class="app">
+    <header class="hero">
+      <p class="eyebrow">Trading-101</p>
+      <h1>Options Strategy Builder</h1>
+      <p class="subtitle">Select a strategy preset, adjust legs, and inspect payoff-at-expiry instantly.</p>
+    </header>
+
+    <section class="controls panel">
+      <div class="field">
+        <label for="preset">Strategy Preset</label>
+        <select id="preset"></select>
+      </div>
+      <div class="field compact">
+        <label for="spot">Spot Price</label>
+        <input id="spot" type="number" step="0.1" value="100">
+      </div>
+      <div class="field compact">
+        <label for="rangePct">Chart Range (+/- %)</label>
+        <input id="rangePct" type="number" step="1" min="10" max="80" value="35">
+      </div>
+      <button id="reset" class="btn">Reset Preset Legs</button>
+    </section>
+
+    <section class="grid">
+      <article class="panel">
+        <h2>Legs</h2>
+        <table id="legsTable">
+          <thead>
+            <tr>
+              <th>Side</th>
+              <th>Type</th>
+              <th>Strike</th>
+              <th>Premium</th>
+              <th>Qty</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <div class="actions">
+          <button id="addLeg" class="btn ghost">Add Leg</button>
+        </div>
+      </article>
+
+      <article class="panel chart-panel">
+        <div class="chart-head">
+          <h2>Payoff at Expiry</h2>
+          <p id="summary"></p>
+        </div>
+        <canvas id="payoffCanvas" width="960" height="520"></canvas>
+        <div id="notes" class="notes"></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
