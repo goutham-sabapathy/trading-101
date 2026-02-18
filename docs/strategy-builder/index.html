@@ -34,6 +34,25 @@
       <button id="reset" class="btn">Reset Preset Legs</button>
     </section>
 
+    <section class="scenario-controls panel">
+      <h3>Real-Time Scenario Simulation</h3>
+      <div class="scenario-grid">
+        <div class="field">
+          <label for="scenario">Market Scenario</label>
+          <select id="scenario"></select>
+        </div>
+        <div class="field compact">
+          <label for="daysToExpiry">Days to Expiry</label>
+          <input id="daysToExpiry" type="number" step="0.5" min="0" max="365" value="30">
+        </div>
+        <div class="field compact">
+          <label for="volatility">Implied Vol (%)</label>
+          <input id="volatility" type="number" step="1" min="5" max="100" value="25">
+        </div>
+        <button id="simulateBtn" class="btn secondary">Start Simulation</button>
+      </div>
+    </section>
+
     <section class="grid">
       <article class="panel">
         <h2>Legs</h2>
@@ -62,6 +81,14 @@
         </div>
         <canvas id="payoffCanvas" width="960" height="520"></canvas>
         <div id="notes" class="notes"></div>
+      </article>
+
+      <article class="panel chart-panel">
+        <div class="chart-head">
+          <h2>Time Decay (P/L Over Time)</h2>
+          <p class="chart-desc">Shows how position value changes as time passes (holding spot constant)</p>
+        </div>
+        <canvas id="timeDecayCanvas" width="960" height="340"></canvas>
       </article>
     </section>
   </main>
