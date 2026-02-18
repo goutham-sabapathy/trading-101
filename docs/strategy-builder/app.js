@@ -90,6 +90,8 @@ let simulationInterval = null;
 let currentDays = 30;
 let currentVolatility = 0.25;
 
+const RISK_FREE_RATE = 0.05; // Risk-free rate used in options pricing
+
 const SCENARIOS = {
   neutral: {
     label: "Neutral Market",
@@ -205,11 +207,10 @@ function calculateVega(S, K, T, r, sigma) {
 // Update premium based on current market conditions
 function updatePremium(leg, spot, days, vol) {
   const T = days / 365;
-  const r = 0.05; // Risk-free rate
   
   const theoreticalPrice = leg.type === "call" 
-    ? blackScholesCall(spot, leg.strike, T, r, vol)
-    : blackScholesPut(spot, leg.strike, T, r, vol);
+    ? blackScholesCall(spot, leg.strike, T, RISK_FREE_RATE, vol)
+    : blackScholesPut(spot, leg.strike, T, RISK_FREE_RATE, vol);
   
   return Math.max(0.01, theoreticalPrice);
 }
@@ -365,16 +366,15 @@ function drawChart() {
   // Calculate total Greeks
   const spotPrice = parseNum(spotInput.value, 100);
   const days = parseNum(daysToExpiryInput.value, currentDays);
-  const vol = parseNum(volatilityInput.value, currentVolatility);
+  const vol = parseNum(volatilityInput.value, currentVolatility) / 100; // Convert from percentage to decimal
   const T = days / 365;
-  const r = 0.05;
   
   let totalDelta = 0, totalTheta = 0, totalVega = 0;
   legs.forEach(leg => {
     const multiplier = leg.side === "buy" ? 1 : -1;
-    totalDelta += multiplier * leg.qty * calculateDelta(spotPrice, leg.strike, T, r, vol, leg.type);
-    totalTheta += multiplier * leg.qty * calculateTheta(spotPrice, leg.strike, T, r, vol, leg.type);
-    totalVega += multiplier * leg.qty * calculateVega(spotPrice, leg.strike, T, r, vol);
+    totalDelta += multiplier * leg.qty * calculateDelta(spotPrice, leg.strike, T, RISK_FREE_RATE, vol, leg.type);
+    totalTheta += multiplier * leg.qty * calculateTheta(spotPrice, leg.strike, T, RISK_FREE_RATE, vol, leg.type);
+    totalVega += multiplier * leg.qty * calculateVega(spotPrice, leg.strike, T, RISK_FREE_RATE, vol);
   });
   
   summary.textContent = `Spot P/L ${formatMoney(payoffAtSpot)} | Max ${formatMoney(maxProfit)} / ${formatMoney(maxLoss)} | Δ: ${totalDelta.toFixed(2)} | Θ: ${totalTheta.toFixed(2)} | ν: ${totalVega.toFixed(2)}`;
@@ -457,14 +457,15 @@ function drawTimeDecayChart() {
   
   const spot = parseNum(spotInput.value, 100);
   const currentDaysToExpiry = parseNum(daysToExpiryInput.value, currentDays);
-  const vol = parseNum(volatilityInput.value, currentVolatility);
+  const vol = parseNum(volatilityInput.value, currentVolatility) / 100; // Convert from percentage to decimal
   
   // Calculate P/L over time (from now until expiry)
   const points = [];
   const steps = 30;
   
   for (let i = 0; i <= steps; i++) {
-    const daysRemaining = (currentDaysToExpiry * i) / steps;
+    const daysPassed = (currentDaysToExpiry * i) / steps;
+    const daysRemaining = currentDaysToExpiry - daysPassed;
     let totalPL = 0;
     
     legs.forEach(leg => {
@@ -473,7 +474,7 @@ function drawTimeDecayChart() {
       totalPL += multiplier * leg.qty * (premium - leg.premium);
     });
     
-    points.push({ x: currentDaysToExpiry - daysRemaining, y: totalPL });
+    points.push({ x: daysPassed, y: totalPL });
   }
   
   const ys = points.map(p => p.y);
