@@ -29,6 +29,7 @@ docs/
 - [SPY ORB Options Playbook](./common/spy-orb-options-playbook.md)
 - [SPY Strategy Decision Matrix](./common/spy-strategy-decision-matrix.md)
 - [SPY Recommendation Engine Rulebook](./common/spy-recommendation-engine-rulebook.md)
+- [SPY Premarket Trend Bias Engine](./common/spy-premarket-trend-bias-engine.md)
 
 ## Usage Rule
 

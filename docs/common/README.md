@@ -14,5 +14,6 @@ Use these docs as references in project-specific design docs.
 - [SPY ORB Options Playbook](./spy-orb-options-playbook.md)
 - [SPY Strategy Decision Matrix](./spy-strategy-decision-matrix.md)
 - [SPY Recommendation Engine Rulebook](./spy-recommendation-engine-rulebook.md)
+- [SPY Premarket Trend Bias Engine](./spy-premarket-trend-bias-engine.md)
 - [Trading Journal Template](./trading-journal-template.md)
 - [Glossary](./glossary.md)
