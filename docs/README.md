@@ -7,6 +7,7 @@ This repository is the shared knowledge base for general trading education and b
 - market structure and market internals
 - strategy concepts and comparisons
 - indicators and risk principles
+- trading discipline and journaling practices
 - data sources and tooling references
 - reusable visual aids for learning
 
@@ -23,6 +24,8 @@ docs/
 
 - [Common Docs Index](./common/README.md)
 - [Options Strategy Builder](./strategy-builder/index.html)
+- [Trading Discipline Framework](./common/trading-discipline-framework.md)
+- [SPY ORB Options Playbook](./common/spy-orb-options-playbook.md)
 
 ## Usage Rule
 
