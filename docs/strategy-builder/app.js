@@ -125,10 +125,6 @@ const SCENARIOS = {
   }
 };
 
-function cloneLegs(sourceLegs) {
-  return sourceLegs.map((leg) => ({ ...leg }));
-}
-
 function formatMoney(value) {
   const sign = value >= 0 ? "+" : "-";
   return `${sign}$${Math.abs(value).toFixed(2)}`;
@@ -139,8 +135,45 @@ function parseNum(value, fallback = 0) {
   return Number.isFinite(num) ? num : fallback;
 }
 
+function normalizeLeg(leg) {
+  const basePremium = Math.max(0.01, parseNum(leg.entryPremium ?? leg.premium ?? leg.markPremium, 1));
+  return {
+    ...leg,
+    strike: Math.max(0.01, parseNum(leg.strike, 100)),
+    qty: Math.max(1, Math.round(parseNum(leg.qty, 1))),
+    entryPremium: basePremium,
+    markPremium: Math.max(0.01, parseNum(leg.markPremium, basePremium)),
+    premium: basePremium
+  };
+}
+
+function cloneLegs(sourceLegs) {
+  return sourceLegs.map((leg) => normalizeLeg(leg));
+}
+
+function getEntryPremium(leg) {
+  return Math.max(0.01, parseNum(leg.entryPremium ?? leg.premium, 1));
+}
+
+function setEntryPremium(leg, premium) {
+  const cleanPremium = Math.max(0.01, parseNum(premium, 1));
+  leg.entryPremium = cleanPremium;
+  leg.premium = cleanPremium;
+  leg.markPremium = cleanPremium;
+}
+
+function sanitizeOptionInputs(S, K, T, sigma) {
+  return {
+    S: Math.max(0.01, parseNum(S, 0.01)),
+    K: Math.max(0.01, parseNum(K, 0.01)),
+    T: Math.max(0, parseNum(T, 0)),
+    sigma: Math.max(0.0001, parseNum(sigma, 0.0001))
+  };
+}
+
 // Black-Scholes approximation for option pricing
 function blackScholesCall(S, K, T, r, sigma) {
+  ({ S, K, T, sigma } = sanitizeOptionInputs(S, K, T, sigma));
   if (T <= 0) return Math.max(S - K, 0);
   
   const d1 = (Math.log(S / K) + (r + 0.5 * sigma * sigma) * T) / (sigma * Math.sqrt(T));
@@ -150,6 +183,7 @@ function blackScholesCall(S, K, T, r, sigma) {
 }
 
 function blackScholesPut(S, K, T, r, sigma) {
+  ({ S, K, T, sigma } = sanitizeOptionInputs(S, K, T, sigma));
   if (T <= 0) return Math.max(K - S, 0);
   
   const d1 = (Math.log(S / K) + (r + 0.5 * sigma * sigma) * T) / (sigma * Math.sqrt(T));
@@ -168,6 +202,7 @@ function normCDF(x) {
 
 // Calculate Greeks
 function calculateDelta(S, K, T, r, sigma, type) {
+  ({ S, K, T, sigma } = sanitizeOptionInputs(S, K, T, sigma));
   if (T <= 0) return type === "call" ? (S > K ? 1 : 0) : (S < K ? -1 : 0);
   
   const d1 = (Math.log(S / K) + (r + 0.5 * sigma * sigma) * T) / (sigma * Math.sqrt(T));
@@ -180,6 +215,7 @@ function calculateDelta(S, K, T, r, sigma, type) {
 }
 
 function calculateTheta(S, K, T, r, sigma, type) {
+  ({ S, K, T, sigma } = sanitizeOptionInputs(S, K, T, sigma));
   if (T <= 0) return 0;
   
   const d1 = (Math.log(S / K) + (r + 0.5 * sigma * sigma) * T) / (sigma * Math.sqrt(T));
@@ -196,6 +232,7 @@ function calculateTheta(S, K, T, r, sigma, type) {
 }
 
 function calculateVega(S, K, T, r, sigma) {
+  ({ S, K, T, sigma } = sanitizeOptionInputs(S, K, T, sigma));
   if (T <= 0) return 0;
   
   const d1 = (Math.log(S / K) + (r + 0.5 * sigma * sigma) * T) / (sigma * Math.sqrt(T));
@@ -206,7 +243,7 @@ function calculateVega(S, K, T, r, sigma) {
 
 // Update premium based on current market conditions
 function updatePremium(leg, spot, days, vol) {
-  const T = days / 365;
+  const T = Math.max(0, parseNum(days, 0)) / 365;
   
   const theoreticalPrice = leg.type === "call" 
     ? blackScholesCall(spot, leg.strike, T, RISK_FREE_RATE, vol)
@@ -221,7 +258,7 @@ function optionPayoff(leg, stockPrice) {
     : Math.max(leg.strike - stockPrice, 0);
 
   const multiplier = leg.side === "buy" ? 1 : -1;
-  return multiplier * leg.qty * (intrinsic - leg.premium);
+  return multiplier * leg.qty * (intrinsic - getEntryPremium(leg));
 }
 
 function totalPayoff(stockPrice) {
@@ -365,25 +402,28 @@ function drawChart() {
   
   // Calculate total Greeks
   const spotPrice = parseNum(spotInput.value, 100);
-  const days = parseNum(daysToExpiryInput.value, currentDays);
-  const vol = parseNum(volatilityInput.value, currentVolatility) / 100; // Convert from percentage to decimal
+  const days = Math.max(0, parseNum(daysToExpiryInput.value, currentDays));
+  const vol = Math.max(0.0001, parseNum(volatilityInput.value, currentVolatility) / 100); // Convert from percentage to decimal
   const T = days / 365;
   
   let totalDelta = 0, totalTheta = 0, totalVega = 0;
-  legs.forEach(leg => {
+  legs.forEach((leg) => {
     const multiplier = leg.side === "buy" ? 1 : -1;
     totalDelta += multiplier * leg.qty * calculateDelta(spotPrice, leg.strike, T, RISK_FREE_RATE, vol, leg.type);
     totalTheta += multiplier * leg.qty * calculateTheta(spotPrice, leg.strike, T, RISK_FREE_RATE, vol, leg.type);
     totalVega += multiplier * leg.qty * calculateVega(spotPrice, leg.strike, T, RISK_FREE_RATE, vol);
   });
-  
+
+  const selectedScenario = scenarioSelect && SCENARIOS[scenarioSelect.value] ? SCENARIOS[scenarioSelect.value] : null;
+
   summary.textContent = `Spot P/L ${formatMoney(payoffAtSpot)} | Max ${formatMoney(maxProfit)} / ${formatMoney(maxLoss)} | Δ: ${totalDelta.toFixed(2)} | Θ: ${totalTheta.toFixed(2)} | ν: ${totalVega.toFixed(2)}`;
 
   notes.innerHTML = [
     `<span class="tag pos">Breakeven(s): ${breakEvens.length ? breakEvens.join(", ") : "none in current range"}</span>`,
     `<span class="tag neg">Range: ${minX.toFixed(1)} - ${maxX.toFixed(1)}</span>`,
+    selectedScenario ? `<span class="tag scenario">${selectedScenario.description}</span>` : "",
     PRESETS[currentPresetKey].note
-  ].join(" ");
+  ].filter(Boolean).join(" ");
 }
 
 function renderLegRow(leg, index) {
@@ -402,8 +442,8 @@ function renderLegRow(leg, index) {
         <option value="put" ${leg.type === "put" ? "selected" : ""}>Put</option>
       </select>
     </td>
-    <td><input data-field="strike" data-index="${index}" type="number" step="0.5" value="${leg.strike}"></td>
-    <td><input data-field="premium" data-index="${index}" type="number" step="0.05" value="${leg.premium}"></td>
+    <td><input data-field="strike" data-index="${index}" type="number" step="0.5" min="0.01" value="${leg.strike}"></td>
+    <td><input data-field="premium" data-index="${index}" type="number" step="0.05" min="0.01" value="${getEntryPremium(leg)}"></td>
     <td><input data-field="qty" data-index="${index}" type="number" step="1" min="1" value="${leg.qty}"></td>
     <td><button data-remove="${index}" class="remove">x</button></td>
   `;
@@ -423,6 +463,7 @@ function applyPreset(presetKey) {
   legs = cloneLegs(preset.legs);
   renderLegs();
   drawChart();
+  drawTimeDecayChart();
 }
 
 function setupPresetOptions() {
@@ -456,8 +497,9 @@ function drawTimeDecayChart() {
   const margin = { top: 20, right: 20, bottom: 35, left: 50 };
   
   const spot = parseNum(spotInput.value, 100);
-  const currentDaysToExpiry = parseNum(daysToExpiryInput.value, currentDays);
-  const vol = parseNum(volatilityInput.value, currentVolatility) / 100; // Convert from percentage to decimal
+  const currentDaysToExpiry = Math.max(0, parseNum(daysToExpiryInput.value, currentDays));
+  const safeTotalDays = Math.max(currentDaysToExpiry, 0.0001);
+  const vol = Math.max(0.0001, parseNum(volatilityInput.value, currentVolatility) / 100); // Convert from percentage to decimal
   
   // Calculate P/L over time (from now until expiry)
   const points = [];
@@ -468,16 +510,16 @@ function drawTimeDecayChart() {
     const daysRemaining = currentDaysToExpiry - daysPassed;
     let totalPL = 0;
     
-    legs.forEach(leg => {
+    legs.forEach((leg) => {
       const premium = updatePremium(leg, spot, daysRemaining, vol);
       const multiplier = leg.side === "buy" ? 1 : -1;
-      totalPL += multiplier * leg.qty * (premium - leg.premium);
+      totalPL += multiplier * leg.qty * (premium - getEntryPremium(leg));
     });
     
     points.push({ x: daysPassed, y: totalPL });
   }
   
-  const ys = points.map(p => p.y);
+  const ys = points.map((p) => p.y);
   let minY = Math.min(...ys, 0);
   let maxY = Math.max(...ys, 0);
   
@@ -490,7 +532,7 @@ function drawTimeDecayChart() {
   minY -= padY;
   maxY += padY;
   
-  const mapX = (x) => margin.left + ((x) / currentDaysToExpiry) * (width - margin.left - margin.right);
+  const mapX = (x) => margin.left + (x / safeTotalDays) * (width - margin.left - margin.right);
   const mapY = (y) => height - margin.bottom - ((y - minY) / (maxY - minY)) * (height - margin.top - margin.bottom);
   
   ctx.clearRect(0, 0, width, height);
@@ -534,13 +576,12 @@ function drawTimeDecayChart() {
   ctx.font = "11px JetBrains Mono";
   ctx.fillText("Days Passed", width / 2 - 30, height - 8);
   ctx.fillText("0", margin.left - 5, height - 15);
-  ctx.fillText(currentDaysToExpiry.toString(), width - margin.right - 15, height - 15);
+  ctx.fillText(currentDaysToExpiry.toFixed(1), width - margin.right - 22, height - 15);
   ctx.fillText("P/L", 8, margin.top + 5);
 }
 
 function simulateScenario() {
   const scenario = SCENARIOS[scenarioSelect.value];
-  const spot = parseNum(spotInput.value, 100);
   
   if (simulationInterval) {
     clearInterval(simulationInterval);
@@ -588,14 +629,12 @@ function simulateScenario() {
 
 function updateAllPremiums() {
   const spot = parseNum(spotInput.value, 100);
-  const days = parseNum(daysToExpiryInput.value, currentDays);
-  const vol = parseNum(volatilityInput.value, currentVolatility) / 100;
-  
-  legs.forEach(leg => {
-    leg.premium = updatePremium(leg, spot, days, vol);
+  const days = Math.max(0, parseNum(daysToExpiryInput.value, currentDays));
+  const vol = Math.max(0.0001, parseNum(volatilityInput.value, currentVolatility) / 100);
+
+  legs.forEach((leg) => {
+    leg.markPremium = updatePremium(leg, spot, days, vol);
   });
-  
-  renderLegs();
 }
 
 function bindEvents() {
@@ -608,7 +647,7 @@ function bindEvents() {
   });
 
   document.getElementById("addLeg").addEventListener("click", () => {
-    legs.push({ side: "buy", type: "call", strike: parseNum(spotInput.value, 100), premium: 1, qty: 1 });
+    legs.push(normalizeLeg({ side: "buy", type: "call", strike: parseNum(spotInput.value, 100), premium: 1, qty: 1 }));
     renderLegs();
     drawChart();
     drawTimeDecayChart();
@@ -621,6 +660,12 @@ function bindEvents() {
 
     if (field === "side" || field === "type") {
       legs[idx][field] = e.target.value;
+    } else if (field === "strike") {
+      legs[idx].strike = Math.max(0.01, parseNum(e.target.value, legs[idx].strike));
+    } else if (field === "qty") {
+      legs[idx].qty = Math.max(1, Math.round(parseNum(e.target.value, legs[idx].qty)));
+    } else if (field === "premium") {
+      setEntryPremium(legs[idx], parseNum(e.target.value, getEntryPremium(legs[idx])));
     } else {
       legs[idx][field] = parseNum(e.target.value, legs[idx][field]);
     }
@@ -633,7 +678,7 @@ function bindEvents() {
     if (index === undefined) return;
     legs.splice(parseNum(index, -1), 1);
     if (legs.length === 0) {
-      legs.push({ side: "buy", type: "call", strike: parseNum(spotInput.value, 100), premium: 1, qty: 1 });
+      legs.push(normalizeLeg({ side: "buy", type: "call", strike: parseNum(spotInput.value, 100), premium: 1, qty: 1 }));
     }
     renderLegs();
     drawChart();
@@ -651,11 +696,9 @@ function bindEvents() {
     const scenario = SCENARIOS[scenarioSelect.value];
     volatilityInput.value = (scenario.volatility * 100).toFixed(0);
     currentVolatility = scenario.volatility;
-    notes.innerHTML = [
-      `<span class="tag pos">Breakeven(s): shown on chart</span>`,
-      `<span class="tag scenario">${scenario.description}</span>`,
-      PRESETS[currentPresetKey].note
-    ].join(" ");
+    updateAllPremiums();
+    drawChart();
+    drawTimeDecayChart();
   });
   
   simulateBtn.addEventListener("click", simulateScenario);
