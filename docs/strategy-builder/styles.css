@@ -75,6 +75,23 @@ body {
   margin-bottom: 14px;
 }
 
+.scenario-controls {
+  margin-bottom: 14px;
+}
+
+.scenario-controls h3 {
+  margin: 0 0 12px;
+  font-size: 1rem;
+  color: var(--accent);
+}
+
+.scenario-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1.5fr 0.8fr 0.8fr auto;
+  align-items: end;
+}
+
 .field {
   display: flex;
   flex-direction: column;
@@ -116,10 +133,22 @@ select {
   color: var(--accent);
 }
 
+.btn.secondary {
+  background: var(--accent-2);
+  border-color: var(--accent-2);
+}
+
 .grid {
   display: grid;
   grid-template-columns: minmax(320px, 460px) 1fr;
   gap: 14px;
+}
+
+.chart-desc {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-style: italic;
 }
 
 h2 {
@@ -212,6 +241,11 @@ canvas {
   color: #9c2733;
 }
 
+.tag.scenario {
+  background: rgba(142, 68, 173, 0.15);
+  color: #6c3483;
+}
+
 .remove {
   border: 1px solid #d9a5a8;
   color: #9c2733;
@@ -225,6 +259,10 @@ canvas {
   .controls {
     grid-template-columns: 1fr 1fr;
   }
+  
+  .scenario-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 
   .grid {
     grid-template-columns: 1fr;
@@ -233,6 +271,10 @@ canvas {
 
 @media (max-width: 600px) {
   .controls {
+    grid-template-columns: 1fr;
+  }
+  
+  .scenario-grid {
     grid-template-columns: 1fr;
   }
 
