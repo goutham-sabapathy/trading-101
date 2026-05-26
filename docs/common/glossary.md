@@ -88,7 +88,7 @@
 - `Direction Bias`: Across recent earnings prints, the % of D1 moves that were UP (or DOWN). 7+ out of 8 in one direction is a strong directional bias and tilts strategy selection away from neutral.
 - `D1 / D5`: Post-earnings 1-day and 5-day moves. D5 often reverses D1 partially or fully; defines whether the play is short-term "harvest the crush" or longer "trend follow."
 - `Anchor Price`: Closing price the trading day before an earnings release — the reference price for measuring D1/D5 reaction.
-- `Sympathy Move`: Price reaction in a correlated ticker driven by another stock's news/earnings (e.g., AMAT moves on NVDA results).
+- `Sympathy Move`: Price reaction in a correlated ticker driven by another stock's news or earnings — for example, a wafer-fab equipment supplier reacting to a leading-edge customer's results.
 - `Read-Through`: Same idea framed as "what does X's print tell us about Y?" — common in sector clusters (semis, banks, hyperscalers, payments).
 - `Sell-the-News`: Pattern where a stock falls on a beat (or rises on a miss) because positioning was already extreme.
 - `Gap & Fill`: Tendency for an earnings gap to be partially or fully retraced within several sessions.

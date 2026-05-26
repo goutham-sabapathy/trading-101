@@ -79,7 +79,7 @@ Sum wins across the 8 quarters to get a **historical PoP per strategy**. Lead re
 
 A print rarely happens in isolation. Before finalizing recommendations:
 
-1. **Sector leader within ±3 trading days?** A bellwether print (NVDA for AI semis, JPM for banks, AAPL for consumer tech, AMAT for WFE) drives sympathy in peers.
+1. **Sector leader within ±3 trading days?** A bellwether print — for example, the largest-cap or most-watched name in the relevant cluster (semis, banks, consumer tech, wafer-fab equipment, etc.) — drives sympathy in peers.
 2. **Macro releases within the window?** FOMC, CPI, PPI, GDP, NFP — any of these can dwarf single-stock prints.
 3. **Same-day cluster?** Multiple sector peers on the same day = doubly correlated reactions.
 
