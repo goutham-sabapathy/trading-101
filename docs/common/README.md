@@ -9,6 +9,7 @@ Use these docs as references in project-specific design docs.
 - [Indicators Reference](./indicators.md)
 - [Regime Detection](./regime-detection.md)
 - [Earnings Playbook](./earnings-playbook.md)
+- [Cash-Secured Put Playbook](./cash-secured-put-playbook.md)
 - [Data Sources](./data-sources.md)
 - [Tools Comparison](./tools-comparison.md)
 - [Risk and Position Sizing](./risk-and-position-sizing.md)

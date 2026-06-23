@@ -27,6 +27,7 @@ docs/
 - [Options Strategy Builder](./strategy-builder/index.html)
 - [Trading Discipline Framework](./common/trading-discipline-framework.md)
 - [SPY ORB Options Playbook](./common/spy-orb-options-playbook.md)
+- [Cash-Secured Put Playbook](./common/cash-secured-put-playbook.md)
 - [SPY Strategy Decision Matrix](./common/spy-strategy-decision-matrix.md)
 - [SPY Recommendation Engine Rulebook](./common/spy-recommendation-engine-rulebook.md)
 - [SPY Premarket Trend Bias Engine](./common/spy-premarket-trend-bias-engine.md)
