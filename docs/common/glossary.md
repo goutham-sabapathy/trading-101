@@ -53,6 +53,10 @@
 - `Expected Move`: 1σ move implied by ATM straddle pricing. Approximately `straddle price / spot`. The market's consensus range over the option's life.
 - `1σ / 2σ`: One / two standard deviations. Under a log-normal assumption, ~68% of outcomes lie within 1σ, ~95% within 2σ.
 - `Vol Crush` / `Event Vol Crush`: Specific case of IV crush tied to a binary event resolving.
+- `Bollinger Bands`: A middle band (typically a 20-period SMA) with upper/lower bands set ±k standard deviations away (typically ±2σ). Band width is a direct read on volatility. See [Bollinger Bands Squeeze](./bollinger-bands-squeeze.md).
+- `Bollinger Squeeze`: Bands contracting to a narrow width — low, coiling volatility that often precedes a breakout. Direction is *not* implied by the squeeze; wait for the resolution.
+- `Band Expansion`: Bands widening sharply as a breakout releases volatility; in a strong move price "walks the band."
+- `Band Width / %B`: `Band Width` = (upper − lower) / middle, quantifying squeeze vs expansion. `%B` = where price sits within the bands (0 = lower band, 1 = upper band).
 
 ## Trade Quality Metrics
 
@@ -107,6 +111,10 @@ See [Market Structure: CHoCH vs BOS](./market-structure-choch-bos.md) for diagra
 - `Supply / Demand Zone`: Area of prior strong selling / buying; a candidate reaction or reversal zone.
 - `FVG` (Fair Value Gap): A three-candle price imbalance that price often returns to fill.
 - `Liquidity` (`LIQ`): Clusters of resting stop orders just beyond obvious swing highs/lows; price tends to "sweep" them before reversing.
+- `EQH / EQL` (Equal Highs / Equal Lows): Two or more swings at roughly the same level — an obvious support/resistance where retail stops pool, making it a liquidity target. See [Liquidity Sweeps & SMC Execution](./smc-liquidity-sweep.md).
+- `Liquidity Sweep` / `Stop Hunt`: Price spikes through an obvious level (EQH/EQL, prior high/low), triggers the resting stops, then rejects and reverses. A *failed breakout* that takes liquidity before the real move.
+- `Order Block`: The last opposing candle (or cluster) before an impulsive structural move; a common entry zone on the pullback, often coinciding with an FVG.
+- `Opening Range` (`ORB`): The high–low band of the first 15–30 minutes after the open; a close beyond it is a common intraday breakout trigger. See [Opening-Range Breakout](./opening-range-breakout.md).
 
 ## Regime & Statistical Concepts
 

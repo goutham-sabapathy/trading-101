@@ -31,6 +31,12 @@ Reading the broader tape and the data behind it.
 - **[Market Structure: CHoCH vs BOS](./market-structure-choch-bos.md)** — reading
   swing structure (HH/HL/LL/LH); how Break of Structure confirms a trend and Change
   of Character warns of reversal, with themed diagrams.
+- **[Liquidity Sweeps & SMC Execution](./smc-liquidity-sweep.md)** — the stop-hunt
+  model: sweep of equal highs/lows → CHoCH → FVG entry → stop/target, with bullish
+  and bearish diagrams.
+- **[Trend Identification](./trend-identification.md)** — six lenses on whether a
+  trend is in force (structure/HH-HL, moving averages, crossovers, breakouts, volume,
+  Fibonacci) and how to combine them.
 - **[Regime Detection](./regime-detection.md)** — a Markov-style framework for
   labeling Bull/Bear/Sideways regimes and overlaying hard gates on strategy choice.
 - **[Data Sources](./data-sources.md)** — provider options by data category and the
@@ -48,6 +54,11 @@ Concrete, screen-and-select playbooks that apply across underlyings.
 - **[Earnings Playbook](./earnings-playbook.md)** — selecting earnings structures by
   historical direction bias and beat-implied rate, the 8-quarter table, and IV-crush
   mechanics.
+- **[Opening-Range Breakout](./opening-range-breakout.md)** — the generic session-range
+  breakout setup: mark the first 15–30 min range, trade a confirmed close beyond it
+  with defined risk.
+- **[Bollinger Bands Squeeze](./bollinger-bands-squeeze.md)** — using band
+  contraction/expansion as a volatility signal and trading the middle-band breakout.
 
 ## SPY-Specific Playbooks & Decision System
 
@@ -96,3 +107,4 @@ The rules that keep the rest of the system survivable.
 - **Trading earnings:** Earnings Playbook → Trading Strategies → Indicators → Regime Detection.
 - **Selling premium / the wheel:** Cash-Secured Put Playbook → Trading Strategies → Risk and Position Sizing.
 - **Building the SPY engine:** Premarket Trend Bias Engine → Strategy Decision Matrix → Recommendation Engine Rulebook.
+- **Price action / SMC:** Market Structure (CHoCH vs BOS) → Trend Identification → Liquidity Sweeps & SMC Execution.

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" font-family="'Space Grotesk','Avenir Next',Helvetica,Arial,sans-serif">
+  <rect x="1" y="1" width="758" height="358" rx="14" fill="#fffdf7" stroke="#d8d2c2"/>
+  <text x="30" y="34" font-size="18" font-weight="700" fill="#172026">Bollinger Bands squeeze &#8212; contraction then breakout</text>
+
+  <!-- band envelope fill -->
+  <polygon points="70,232 150,238 260,238 330,222 460,150 590,92 690,72 690,232 590,236 460,250 330,256 260,262 150,262 70,268"
+           fill="rgba(14,122,120,0.08)"/>
+
+  <!-- upper / lower bands -->
+  <polyline points="70,232 150,238 260,238 330,222 460,150 590,92 690,72" fill="none" stroke="#0e7a78" stroke-width="1.6"/>
+  <polyline points="70,268 150,262 260,262 330,256 460,250 590,236 690,232" fill="none" stroke="#0e7a78" stroke-width="1.6"/>
+  <!-- middle band (basis SMA) -->
+  <polyline points="70,250 150,250 260,250 330,239 460,200 590,164 690,152" fill="none" stroke="#c7672f" stroke-width="1.6" stroke-dasharray="6 4"/>
+  <text x="694" y="156" font-size="10" font-weight="700" fill="#c7672f">mid</text>
+
+  <!-- price path -->
+  <polyline points="70,255 150,252 210,248 270,252 320,238 360,200 460,165 540,135 620,105 690,90"
+            fill="none" stroke="#33424d" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- squeeze bracket -->
+  <path d="M135,212 V205 H300 V212" fill="none" stroke="#5b646b" stroke-width="1.2"/>
+  <text x="217" y="198" font-size="11" font-weight="700" fill="#5b646b" text-anchor="middle">SQUEEZE &#183; low volatility</text>
+
+  <!-- expansion bracket -->
+  <path d="M420,70 V63 H655 V70" fill="none" stroke="#14854f" stroke-width="1.2"/>
+  <text x="537" y="56" font-size="11" font-weight="700" fill="#14854f" text-anchor="middle">EXPANSION &#183; breakout</text>
+
+  <!-- entry -->
+  <circle cx="328" cy="240" r="6" fill="#14854f"/>
+  <line x1="392" y1="262" x2="340" y2="246" stroke="#14854f" stroke-width="1.4"/>
+  <polygon points="340,246 351,245 348,253" fill="#14854f"/>
+  <text x="396" y="266" font-size="11" font-weight="700" fill="#14854f">Enter long &#183; close above middle band</text>
+
+  <!-- exit note -->
+  <text x="30" y="338" font-size="11" fill="#5b646b">Squeeze = bands contract (coiling). Breakout = bands expand. Exit / book profit when price closes back below the middle band.</text>
+</svg>
