@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 470" font-family="'Space Grotesk','Avenir Next',Helvetica,Arial,sans-serif">
+  <rect x="1" y="1" width="758" height="468" rx="14" fill="#fffdf7" stroke="#d8d2c2"/>
+  <text x="30" y="36" font-size="19" font-weight="700" fill="#172026">Bullish liquidity sweep &#8212; SMC execution</text>
+
+  <!-- Take Profit level -->
+  <line x1="600" y1="150" x2="716" y2="150" stroke="#14854f" stroke-width="3"/>
+  <text x="560" y="138" font-size="12" font-weight="700" fill="#14854f">TAKE PROFIT &#183; liquidity target</text>
+
+  <!-- CHoCH level (last swing high before the sweep) -->
+  <line x1="285" y1="245" x2="465" y2="245" stroke="#0e7a78" stroke-width="1.6" stroke-dasharray="2 4"/>
+  <text x="150" y="230" font-size="12" font-weight="700" fill="#0e7a78">CHoCH &#183; change of character</text>
+
+  <!-- Equal Lows support -->
+  <line x1="100" y1="300" x2="470" y2="300" stroke="#bf3341" stroke-width="1.6" stroke-dasharray="7 5"/>
+  <text x="105" y="293" font-size="12" font-weight="700" fill="#bf3341">Equal Lows (EQL) &#183; retail support</text>
+
+  <!-- Stop Loss level -->
+  <line x1="345" y1="408" x2="716" y2="408" stroke="#bf3341" stroke-width="3"/>
+  <text x="560" y="427" font-size="12" font-weight="700" fill="#bf3341">STOP LOSS &#183; safe zone</text>
+
+  <!-- FVG zone -->
+  <rect x="452" y="240" width="92" height="72" rx="4" fill="rgba(14,122,120,0.12)" stroke="#0e7a78" stroke-width="1"/>
+  <text x="459" y="258" font-size="11" font-weight="700" fill="#0e7a78">FVG Zone</text>
+  <text x="459" y="272" font-size="10" fill="#5b646b">entry layer</text>
+
+  <!-- price path -->
+  <polyline points="70,150 120,300 175,235 230,300 285,245 335,385 430,205 495,278 610,168 700,150"
+            fill="none" stroke="#33424d" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- sweep marker -->
+  <circle cx="335" cy="385" r="7" fill="#c7672f"/>
+  <text x="250" y="437" font-size="12" font-weight="700" fill="#c7672f">The Sweep &#183; stops triggered</text>
+  <line x1="335" y1="392" x2="320" y2="425" stroke="#c7672f" stroke-width="1.4"/>
+
+  <!-- buy entry -->
+  <line x1="560" y1="300" x2="548" y2="283" stroke="#14854f" stroke-width="1.6"/>
+  <polygon points="548,283 558,287 553,294" fill="#14854f"/>
+  <text x="565" y="300" font-size="12" font-weight="700" fill="#14854f">BUY ENTRY &#183; limit order</text>
+
+  <!-- swing dots -->
+  <circle cx="285" cy="245" r="3.5" fill="#33424d"/>
+  <circle cx="495" cy="278" r="3.5" fill="#14854f"/>
+</svg>

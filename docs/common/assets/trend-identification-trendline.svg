@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" font-family="'Space Grotesk','Avenir Next',Helvetica,Arial,sans-serif">
+  <rect x="1" y="1" width="758" height="338" rx="14" fill="#fffdf7" stroke="#d8d2c2"/>
+  <text x="30" y="34" font-size="18" font-weight="700" fill="#172026">Uptrend structure &#8212; higher highs &amp; higher lows</text>
+  <text x="30" y="54" font-size="12" fill="#5b646b">A confirmed uptrend prints a rising sequence of HH/HL; a trendline drawn under the higher lows tracks support.</text>
+
+  <!-- rising trendline under the higher lows -->
+  <line x1="120" y1="286" x2="520" y2="136" stroke="#c7672f" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="300" y="312" font-size="11" font-weight="700" fill="#c7672f">rising trendline (connects higher lows)</text>
+
+  <!-- price path -->
+  <polyline points="70,300 130,210 190,260 250,165 310,215 370,115 430,170 490,80"
+            fill="none" stroke="#33424d" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- swing dots + labels -->
+  <circle cx="130" cy="210" r="4" fill="#14854f"/><text x="118" y="200" font-size="12" font-weight="700" fill="#14854f">HH</text>
+  <circle cx="250" cy="165" r="4" fill="#14854f"/><text x="238" y="155" font-size="12" font-weight="700" fill="#14854f">HH</text>
+  <circle cx="370" cy="115" r="4" fill="#14854f"/><text x="358" y="105" font-size="12" font-weight="700" fill="#14854f">HH</text>
+  <circle cx="490" cy="80" r="4" fill="#14854f"/><text x="478" y="70" font-size="12" font-weight="700" fill="#14854f">HH</text>
+  <circle cx="190" cy="260" r="4" fill="#0e7a78"/><text x="178" y="282" font-size="12" font-weight="700" fill="#0e7a78">HL</text>
+  <circle cx="310" cy="215" r="4" fill="#0e7a78"/><text x="298" y="237" font-size="12" font-weight="700" fill="#0e7a78">HL</text>
+  <circle cx="430" cy="170" r="4" fill="#0e7a78"/><text x="418" y="192" font-size="12" font-weight="700" fill="#0e7a78">HL</text>
+</svg>
