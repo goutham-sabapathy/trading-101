@@ -45,7 +45,7 @@
 - `IV` (Implied Volatility): Annualized volatility implied by the current option price, solved from a pricing model.
 - `HV / RV` (Historical / Realized Volatility): Annualized volatility computed from actual historical returns.
 - `IV / HV gap` or `Variance Risk Premium (VRP)`: The structural tendency of IV to exceed RV, on average. The "premium" buyers pay for protection against tail risk — the structural source of edge for net premium sellers.
-- `IV Rank`: Where today's IV sits within its 52-week range. IV Rank 80% = today's IV is higher than 80% of the past year's readings.
+- `IV Rank`: Where today's IV sits within its 52-week high–low range, as a min/max scaling: `(IV − 52w low) / (52w high − 52w low)`. IV Rank 80% = today's IV is 80% of the way from its 52-week low to its 52-week high. (Note: "higher than 80% of the past year's readings" describes *IV Percentile*, below — not IV Rank.)
 - `IV Percentile`: Fraction of days in the past year where IV was *below* current. Distinct from IV Rank (which is a min/max scaling).
 - `IV Crush`: Sharp decline in IV after the resolution of a known event (earnings, FDA decision, FOMC). Hurts long premium even when direction is right.
 - `Volatility Skew`: Difference in IV across strikes at the same expiry. Equity index puts are usually more expensive than calls (negative / put skew). When **calls are more expensive than puts (call skew)** it signals demand for upside / squeeze pressure.

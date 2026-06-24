@@ -501,21 +501,25 @@ function drawTimeDecayChart() {
   const safeTotalDays = Math.max(currentDaysToExpiry, 0.0001);
   const vol = Math.max(0.0001, parseNum(volatilityInput.value, currentVolatility) / 100); // Convert from percentage to decimal
   
-  // Calculate P/L over time (from now until expiry)
+  // Calculate P/L over time (from now until expiry), holding spot and vol constant.
+  // Anchor each leg to its theoretical value at the current days-to-expiry so the
+  // curve starts at 0 and shows pure time decay — the preset/entry premium is on a
+  // different basis than the Black-Scholes mark and would otherwise offset the curve.
+  const entryMarks = legs.map((leg) => updatePremium(leg, spot, currentDaysToExpiry, vol));
   const points = [];
   const steps = 30;
-  
+
   for (let i = 0; i <= steps; i++) {
     const daysPassed = (currentDaysToExpiry * i) / steps;
     const daysRemaining = currentDaysToExpiry - daysPassed;
     let totalPL = 0;
-    
-    legs.forEach((leg) => {
+
+    legs.forEach((leg, legIndex) => {
       const premium = updatePremium(leg, spot, daysRemaining, vol);
       const multiplier = leg.side === "buy" ? 1 : -1;
-      totalPL += multiplier * leg.qty * (premium - getEntryPremium(leg));
+      totalPL += multiplier * leg.qty * (premium - entryMarks[legIndex]);
     });
-    
+
     points.push({ x: daysPassed, y: totalPL });
   }
   

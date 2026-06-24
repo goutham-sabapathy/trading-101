@@ -61,7 +61,7 @@ if event_within_48h:
 else:
     short_premium_allowed = True
     size_multiplier = 1.0
-    defined_risk_only = True
+    defined_risk_only = False   # undefined-risk structures permitted only outside the event window
 ```
 
 ## 5. Strategy Mapping
