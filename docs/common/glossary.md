@@ -93,6 +93,21 @@
 - `Sell-the-News`: Pattern where a stock falls on a beat (or rises on a miss) because positioning was already extreme.
 - `Gap & Fill`: Tendency for an earnings gap to be partially or fully retraced within several sessions.
 
+## Market Structure (Price Action)
+
+See [Market Structure: CHoCH vs BOS](./market-structure-choch-bos.md) for diagrams and worked examples.
+
+- `Swing High / Swing Low`: A local price peak / trough used as a structural reference point.
+- `HH / HL`: Higher high / higher low. A sequence of both defines an uptrend.
+- `LL / LH`: Lower low / lower high. A sequence of both defines a downtrend.
+- `BOS` (Break of Structure): Price breaks a prior swing **in the direction of the trend** — confirms continuation (new HH in an uptrend, new LL in a downtrend).
+- `CHoCH` (Change of Character): Price breaks a prior swing **against the trend** (below the last HL in an uptrend, above the last LH in a downtrend) — first warning of a potential reversal.
+- `MSS` (Market Structure Shift): A strong, often impulsive opposite-direction break; sometimes used as a synonym for CHoCH, sometimes reserved for the more decisive version (with displacement / FVG).
+- `POI` (Point of Interest): A price area expected to react — supply/demand zone or order block — often marked on a higher timeframe (`HTF POI`).
+- `Supply / Demand Zone`: Area of prior strong selling / buying; a candidate reaction or reversal zone.
+- `FVG` (Fair Value Gap): A three-candle price imbalance that price often returns to fill.
+- `Liquidity` (`LIQ`): Clusters of resting stop orders just beyond obvious swing highs/lows; price tends to "sweep" them before reversing.
+
 ## Regime & Statistical Concepts
 
 - `Regime`: A persistent statistical state of the market — typically Bull, Bear, or Sideways — defined by rolling-return rules or unsupervised clustering.

@@ -6,6 +6,7 @@ Use these docs as references in project-specific design docs.
 
 - [Trading Strategies](./trading-strategies.md)
 - [Market Internals](./market-internals.md)
+- [Market Structure: CHoCH vs BOS](./market-structure-choch-bos.md)
 - [Indicators Reference](./indicators.md)
 - [Regime Detection](./regime-detection.md)
 - [Earnings Playbook](./earnings-playbook.md)
