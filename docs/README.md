@@ -16,21 +16,20 @@ This repository is the shared knowledge base for general trading education and b
 
 ```text
 docs/
-  README.md
-  common/
-  strategy-builder/
+  README.md                 # this file
+  common/                   # the knowledge base — see common/README.md for the full index
+  strategy-builder/         # interactive options payoff/Greeks visualizer
 ```
 
-## Primary References
+## Start Here
 
-- [Common Docs Index](./common/README.md)
-- [Options Strategy Builder](./strategy-builder/index.html)
-- [Trading Discipline Framework](./common/trading-discipline-framework.md)
-- [SPY ORB Options Playbook](./common/spy-orb-options-playbook.md)
-- [Cash-Secured Put Playbook](./common/cash-secured-put-playbook.md)
-- [SPY Strategy Decision Matrix](./common/spy-strategy-decision-matrix.md)
-- [SPY Recommendation Engine Rulebook](./common/spy-recommendation-engine-rulebook.md)
-- [SPY Premarket Trend Bias Engine](./common/spy-premarket-trend-bias-engine.md)
+- **[Common Knowledge Base Index](./common/README.md)** — the categorized index of
+  every concept doc, with a one-line description and suggested reading paths.
+- **[Options Strategy Builder](./strategy-builder/index.html)** — interactive
+  payoff/Greeks visualizer.
+
+The Common Knowledge Base Index is the single source of truth for the document list.
+Add new docs there (under the right category) rather than maintaining a second list here.
 
 ## Usage Rule
 

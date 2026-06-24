@@ -30,6 +30,13 @@ Use VIX as the core regime variable and IV Rank as confirmation.
 | High Vol | `vix > 22` or `iv_rank > 60` |
 | Extreme Vol | `vix > 30` |
 
+> **Tie-break (evaluation order).** Because these definitions use `or`, a single
+> state can satisfy more than one row (e.g. `vix = 14` with `iv_rank = 70` matches
+> both Low and High). Evaluate top-down and take the **first** match in this
+> priority order: **Extreme → High → Low → Normal**. The
+> [Recommendation Engine Rulebook](./spy-recommendation-engine-rulebook.md) §3
+> implements exactly this ordering.
+
 ## 3. Event Risk Filter
 
 If major macro event (CPI/FOMC/high-impact release) is within 48 hours:
