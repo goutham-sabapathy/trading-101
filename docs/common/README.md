@@ -51,6 +51,15 @@ Concrete, screen-and-select playbooks that apply across underlyings.
 - **[Cash-Secured Put Playbook](./cash-secured-put-playbook.md)** — the full
   screening checklist for selling puts: volatility edge, strike placement, support
   hierarchy, trend filter, and post-entry management.
+- **[Wheel Strategy Playbook](./wheel-playbook.md)** — the CSP → assignment →
+  covered-call income loop, wheel-specific stock selection (low-drawdown names), and
+  the cost-basis trap to avoid.
+- **[LEAPS + PMCC Playbook](./pmcc-leaps-playbook.md)** — the Poor Man's Covered
+  Call: deep-ITM LEAPS as a stock substitute, short-call income mechanics, the
+  diagonal strike rule, and management.
+- **[Screener & Monitoring Checklist](./screener-and-monitoring.md)** — two screens
+  (PMCC vs Wheel), a long-term quality scorecard, and what to monitor (earnings,
+  ex-div, insider/congress flow, Fed/macro).
 - **[Earnings Playbook](./earnings-playbook.md)** — selecting earnings structures by
   historical direction bias and beat-implied rate, the 8-quarter table, and IV-crush
   mechanics.
@@ -105,6 +114,7 @@ The rules that keep the rest of the system survivable.
 
 - **New to options:** Glossary → Trading Strategies → Indicators → Risk and Position Sizing → Trading Discipline.
 - **Trading earnings:** Earnings Playbook → Trading Strategies → Indicators → Regime Detection.
-- **Selling premium / the wheel:** Cash-Secured Put Playbook → Trading Strategies → Risk and Position Sizing.
+- **Selling premium / the wheel:** Screener & Monitoring → Cash-Secured Put Playbook → Wheel Strategy Playbook → Risk and Position Sizing.
+- **Leveraged long income (PMCC):** Screener & Monitoring → LEAPS + PMCC Playbook → Risk and Position Sizing.
 - **Building the SPY engine:** Premarket Trend Bias Engine → Strategy Decision Matrix → Recommendation Engine Rulebook.
 - **Price action / SMC:** Market Structure (CHoCH vs BOS) → Trend Identification → Liquidity Sweeps & SMC Execution.

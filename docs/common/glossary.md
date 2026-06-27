@@ -31,6 +31,9 @@
 - `Call Diagonal / Put Diagonal`: Like a calendar but with different strikes (one OTM, one further out and longer-dated).
 - `Cash-Secured Put (CSP)`: Sell a put while holding enough cash to buy the shares if assigned. Income strategy; effectively "get paid to set a limit-buy."
 - `Covered Call`: Sell a call against owned shares. Income strategy; caps upside above strike.
+- `LEAPS` (Long-Term Equity AnticiPation Securities): Options with expirations roughly 1–3 years out. A deep-ITM LEAPS call acts as a lower-cost stock substitute. See [LEAPS + PMCC Playbook](./pmcc-leaps-playbook.md).
+- `PMCC` (Poor Man's Covered Call): A long call diagonal — own a deep-ITM LEAPS call and sell shorter-dated OTM calls against it. Covered-call-style income with ~3–5× less capital and a defined max loss (the net debit).
+- `Wheel`: An income loop — sell cash-secured puts on a stock you'd own; if assigned, sell covered calls until called away; repeat. See [Wheel Strategy Playbook](./wheel-playbook.md).
 
 ## The Greeks (sensitivities)
 
