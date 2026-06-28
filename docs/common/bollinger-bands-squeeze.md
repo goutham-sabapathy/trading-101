@@ -1,3 +1,8 @@
+---
+title: "Bollinger Bands Squeeze"
+parent: "Strategy Playbooks"
+---
+
 # Bollinger Bands Squeeze
 
 Quick visual reference. Terms in the [Glossary → Volatility](./glossary.md).

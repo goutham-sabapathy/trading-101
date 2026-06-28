@@ -1,3 +1,8 @@
+---
+title: "Tools Comparison"
+parent: "Market Context & Internals"
+---
+
 # Tools Comparison (Generic)
 
 ## Brokerage / Execution APIs

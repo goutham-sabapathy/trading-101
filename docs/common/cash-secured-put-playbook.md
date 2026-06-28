@@ -1,3 +1,8 @@
+---
+title: "Cash-Secured Put Playbook"
+parent: "Strategy Playbooks"
+---
+
 # Cash-Secured Put (CSP) Playbook (Generic)
 
 > Educational reference for selecting and screening cash-secured puts. A CSP is an **obligation to buy** the underlying at the strike if assigned — so the first rule is: only sell on names you would genuinely accept owning at the breakeven price.

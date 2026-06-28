@@ -1,3 +1,8 @@
+---
+title: "Trend Identification"
+parent: "Market Context & Internals"
+---
+
 # Trend Identification
 
 Quick visual reference. Terms in the [Glossary → Market Structure](./glossary.md).

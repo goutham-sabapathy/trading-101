@@ -1,3 +1,8 @@
+---
+title: "Trading Journal Template"
+parent: "Risk & Discipline"
+---
+
 # Trading Journal Template
 
 ## Template

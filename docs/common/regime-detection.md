@@ -1,3 +1,8 @@
+---
+title: "Regime Detection"
+parent: "Market Context & Internals"
+---
+
 # Regime Detection (Markov Framework)
 
 > Generic educational reference for using Markov-style regime models as a filter on top of a strategy selection process.

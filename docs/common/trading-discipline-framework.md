@@ -1,3 +1,8 @@
+---
+title: "Trading Discipline Framework"
+parent: "Risk & Discipline"
+---
+
 # Trading Discipline Framework
 
 ## Purpose

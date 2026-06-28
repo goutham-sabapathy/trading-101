@@ -1,3 +1,8 @@
+---
+title: "Market Structure: CHoCH vs BOS"
+parent: "Market Context & Internals"
+---
+
 # Market Structure: CHoCH vs BOS
 
 Quick visual reference. Full definitions live in the [Glossary → Market Structure](./glossary.md).

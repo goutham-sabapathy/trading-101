@@ -1,3 +1,8 @@
+---
+title: "Indicators Reference"
+parent: "Foundations"
+---
+
 # Indicators Reference (Generic)
 
 ## Breadth and Flow

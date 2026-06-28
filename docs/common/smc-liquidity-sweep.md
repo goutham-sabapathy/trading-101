@@ -1,3 +1,8 @@
+---
+title: "Liquidity Sweeps & SMC Execution"
+parent: "Market Context & Internals"
+---
+
 # Liquidity Sweeps & SMC Execution
 
 Quick visual reference. Terms in the [Glossary → Market Structure](./glossary.md). Builds on [CHoCH vs BOS](./market-structure-choch-bos.md).
