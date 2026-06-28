@@ -5,6 +5,8 @@ parent: "SPY-Specific"
 
 # SPY ORB Options Playbook
 
+> Educational reference for a rule-based SPY Opening Range Breakout (ORB) options trade.
+
 ## Purpose
 Reference setup for a rule-based SPY Opening Range Breakout (ORB) options trade.
 
@@ -91,3 +93,10 @@ Track setup quality weekly:
 ## 10. Notes
 
 This playbook is educational and process-focused. Validate with replay/backtest and paper trading before risking capital.
+
+## Related References
+
+- [Opening-Range Breakout](./opening-range-breakout.md) — the generic visual setup
+- [SPY Strategy Decision Matrix](./spy-strategy-decision-matrix.md) — structure selection by regime
+- [Trading Discipline Framework](./trading-discipline-framework.md) — R units and daily guardrails
+- [Glossary](./glossary.md) — ORB, VWAP, delta terms

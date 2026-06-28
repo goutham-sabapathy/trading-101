@@ -5,6 +5,8 @@ parent: "Market Context & Internals"
 
 # Data Sources (Generic)
 
+> Educational reference for data sources used across trading projects and the curation standards for them.
+
 ## Purpose
 Reference data sources used across trading projects and define curation standards.
 
@@ -41,3 +43,10 @@ Reference data sources used across trading projects and define curation standard
 - Option spread sanity checks
 - Duplicate contract records
 - Corporate action alignment checks
+
+## Related References
+
+- [Tools Comparison](./tools-comparison.md) — data platforms and broker APIs
+- [Indicators Reference](./indicators.md) — what the data feeds compute
+- [Screener & Monitoring](./screener-and-monitoring.md) — where these sources are used
+- [Glossary](./glossary.md) — data and options terms

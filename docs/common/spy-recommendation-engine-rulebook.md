@@ -5,6 +5,8 @@ parent: "SPY-Specific"
 
 # SPY Recommendation Engine Rulebook (Deterministic)
 
+> Educational reference for the deterministic rule logic of a SPY-only, non-ML strategy recommendation engine.
+
 ## Purpose
 Define concrete rule logic for a SPY-only, non-ML strategy recommendation engine.
 
@@ -149,3 +151,10 @@ This engine does not:
 3. skew-aware strike adjustment
 4. Kelly-fraction sizing overlay (bounded)
 5. volatility-of-volatility guardrail
+
+## Related References
+
+- [SPY Strategy Decision Matrix](./spy-strategy-decision-matrix.md) — the matrix this engine consumes
+- [SPY Premarket Trend Bias Engine](./spy-premarket-trend-bias-engine.md) — premarket bias inputs
+- [Risk and Position Sizing](./risk-and-position-sizing.md) — sizing and risk guardrails
+- [Glossary](./glossary.md) — trend, vol-regime, structure terms

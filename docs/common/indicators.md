@@ -5,6 +5,8 @@ parent: "Foundations"
 
 # Indicators Reference (Generic)
 
+> Educational reference for the breadth, volatility, positioning, and regime indicators used across the playbooks.
+
 ## Breadth and Flow
 
 | Indicator | What It Measures | Typical Interpretation |
@@ -53,3 +55,10 @@ parent: "Foundations"
 - Keep threshold logic in rulebooks and version those thresholds.
 - Validate indicator utility per ticker/regime via out-of-sample tests.
 - Skew and term-structure inversions often signal known upcoming events (earnings, FDA, macro releases) — verify before assuming structural meaning.
+
+## Related References
+
+- [Regime Detection](./regime-detection.md) — regime indicators in context
+- [Market Internals](./market-internals.md) — breadth and flow internals
+- [Trading Strategies](./trading-strategies.md) — how indicators map to structures
+- [Glossary](./glossary.md) — indicator and volatility definitions

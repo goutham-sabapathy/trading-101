@@ -107,6 +107,8 @@ Many stocks gap on D1 and then partially retrace by D5. If D1 and D5 frequently 
 
 ## Pre-Earnings IV Behavior
 
+![Earnings IV crush: implied volatility ramps up into the report inflating option premium, then collapses on the open after the release — the actual move is often smaller than the premium that decays](./assets/earnings-iv-crush.svg)
+
 Expect IV to rise into the print (especially in the final 5–7 trading days) and **crush** sharply on the open after the release. Two operational consequences:
 
 1. **Build short-premium structures ~7–10 days before the print** to capture the IV expansion *and* the post-print crush.
@@ -140,8 +142,9 @@ For each earnings setup, record:
 
 If any field is missing, the trade is not ready.
 
-## See Also
+## Related References
 
 - [Trading Strategies](./trading-strategies.md) — named-spread mechanics
 - [Indicators Reference](./indicators.md) — IV, skew, term structure
 - [Regime Detection](./regime-detection.md) — Markov overlay that can override the earnings tilt
+- [Glossary](./glossary.md) — earnings and volatility terms

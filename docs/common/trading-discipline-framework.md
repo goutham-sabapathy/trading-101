@@ -5,6 +5,8 @@ parent: "Risk & Discipline"
 
 # Trading Discipline Framework
 
+> Educational reference for a rule-based discipline framework that drives consistent execution over prediction.
+
 ## Purpose
 This is a rule-based discipline framework for consistent execution.
 
@@ -153,3 +155,10 @@ Do not trade when any of the following applies:
 Formula:
 
 `Edge + Discipline + Position Sizing = Long-term profitability`
+
+## Related References
+
+- [Trading Journal Template](./trading-journal-template.md) — log every trade and review
+- [Risk and Position Sizing](./risk-and-position-sizing.md) — the R unit and risk caps
+- [Trading Strategies](./trading-strategies.md) — defining objective setups
+- [Glossary](./glossary.md) — R, time stop, profit target terms

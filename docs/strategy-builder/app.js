@@ -380,7 +380,7 @@ function drawChart() {
   ctx.fill();
 
   ctx.fillStyle = "#4d5560";
-  ctx.font = "12px JetBrains Mono";
+  ctx.font = "12px ui-monospace, Menlo, Consolas, monospace";
   ctx.fillText(`S: ${spot.toFixed(2)}`, Math.max(margin.left, Math.min(spotX - 22, width - margin.right - 52)), height - 16);
   ctx.fillText("P/L 0", 16, zeroY + 4);
   ctx.fillText(minX.toFixed(0), margin.left - 6, height - 16);
@@ -577,7 +577,7 @@ function drawTimeDecayChart() {
   
   // Labels
   ctx.fillStyle = "#4d5560";
-  ctx.font = "11px JetBrains Mono";
+  ctx.font = "11px ui-monospace, Menlo, Consolas, monospace";
   ctx.fillText("Days Passed", width / 2 - 30, height - 8);
   ctx.fillText("0", margin.left - 5, height - 15);
   ctx.fillText(currentDaysToExpiry.toFixed(1), width - margin.right - 22, height - 15);

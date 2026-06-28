@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" font-family="'Space Grotesk','Avenir Next',Helvetica,Arial,sans-serif">
+  <rect x="1" y="1" width="758" height="428" rx="14" fill="#fffdf7" stroke="#d8d2c2"/>
+  <text x="30" y="36" font-size="19" font-weight="700" fill="#172026">Earnings IV crush</text>
+  <text x="30" y="56" font-size="12" fill="#5b646b">Implied vol inflates into the report, then collapses the moment uncertainty resolves.</text>
+
+  <!-- axes -->
+  <line x1="70" y1="350" x2="710" y2="350" stroke="#d8d2c2" stroke-width="1.5"/>
+  <text x="70" y="372" font-size="11" fill="#5b646b">E&#8722;5</text>
+  <text x="404" y="372" font-size="11" fill="#5b646b" text-anchor="middle">earnings</text>
+  <text x="700" y="372" font-size="11" fill="#5b646b" text-anchor="end">E+5</text>
+  <text x="40" y="120" font-size="11" fill="#5b646b" transform="rotate(-90 40 120)" text-anchor="middle">implied vol</text>
+
+  <!-- event line -->
+  <line x1="430" y1="80" x2="430" y2="350" stroke="#172026" stroke-width="1.4" stroke-dasharray="5 4"/>
+  <text x="430" y="74" font-size="11" font-weight="700" fill="#172026" text-anchor="middle">Earnings &#183; after close</text>
+
+  <!-- IV curve: ramp then crush -->
+  <polyline points="80,300 180,275 280,225 380,165 425,150 432,150 452,300 540,312 700,316"
+            fill="none" stroke="#0e7a78" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="150" y="250" font-size="12" font-weight="700" fill="#0e7a78">IV ramps</text>
+  <text x="150" y="266" font-size="10" fill="#5b646b">premium inflates</text>
+
+  <!-- crush annotation -->
+  <text x="470" y="200" font-size="12" font-weight="700" fill="#c7672f">IV crush</text>
+  <text x="470" y="216" font-size="10" fill="#5b646b">premium collapses</text>
+  <path d="M462,205 C448,225 442,250 440,275" fill="none" stroke="#c7672f" stroke-width="1.4"/>
+
+  <!-- realized price path (slate) -->
+  <polyline points="80,330 200,331 320,329 430,331 470,300 560,305 700,302"
+            fill="none" stroke="#33424d" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="1 0"/>
+  <circle cx="470" cy="300" r="4" fill="#33424d"/>
+  <text x="486" y="296" font-size="11" fill="#33424d">actual move (often &lt; the inflated premium)</text>
+
+  <text x="30" y="408" font-size="11" fill="#5b646b">Long premium bought into the event loses to the crush even when the direction is right; short premium harvests it (gap risk aside).</text>
+</svg>

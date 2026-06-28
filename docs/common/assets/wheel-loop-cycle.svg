@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 470" font-family="'Space Grotesk','Avenir Next',Helvetica,Arial,sans-serif">
+  <defs>
+    <marker id="ah-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#33424d"/></marker>
+    <marker id="ah-copper" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c7672f"/></marker>
+    <marker id="ah-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14854f"/></marker>
+  </defs>
+
+  <rect x="1" y="1" width="758" height="468" rx="14" fill="#fffdf7" stroke="#d8d2c2"/>
+  <text x="30" y="36" font-size="19" font-weight="700" fill="#172026">The Wheel &#8212; income loop</text>
+  <text x="30" y="56" font-size="12" fill="#5b646b">Premium is collected at every step. Assignment is an accepted outcome, not a failure.</text>
+
+  <!-- boxes -->
+  <rect x="70" y="95" width="250" height="74" rx="10" fill="rgba(14,122,120,0.10)" stroke="#0e7a78" stroke-width="1.5"/>
+  <text x="195" y="127" font-size="14" font-weight="700" fill="#172026" text-anchor="middle">1 &#183; Sell Cash-Secured Put</text>
+  <text x="195" y="147" font-size="11" fill="#5b646b" text-anchor="middle">collect premium</text>
+
+  <rect x="440" y="95" width="250" height="74" rx="10" fill="rgba(199,103,47,0.10)" stroke="#c7672f" stroke-width="1.5"/>
+  <text x="565" y="123" font-size="14" font-weight="700" fill="#172026" text-anchor="middle">Own 100 shares</text>
+  <text x="565" y="143" font-size="11" fill="#5b646b" text-anchor="middle">cost basis = strike &#8722; premium</text>
+
+  <rect x="440" y="300" width="250" height="74" rx="10" fill="rgba(14,122,120,0.10)" stroke="#0e7a78" stroke-width="1.5"/>
+  <text x="565" y="332" font-size="14" font-weight="700" fill="#172026" text-anchor="middle">2 &#183; Sell Covered Call</text>
+  <text x="565" y="352" font-size="11" fill="#5b646b" text-anchor="middle">strike &#8805; cost basis</text>
+
+  <rect x="70" y="300" width="250" height="74" rx="10" fill="rgba(20,133,79,0.10)" stroke="#14854f" stroke-width="1.5"/>
+  <text x="195" y="332" font-size="14" font-weight="700" fill="#172026" text-anchor="middle">Shares called away</text>
+  <text x="195" y="352" font-size="11" fill="#5b646b" text-anchor="middle">sold at the call strike</text>
+
+  <!-- clockwise transitions -->
+  <line x1="320" y1="125" x2="432" y2="125" stroke="#c7672f" stroke-width="2" marker-end="url(#ah-copper)"/>
+  <text x="376" y="116" font-size="11" font-weight="700" fill="#c7672f" text-anchor="middle">assigned</text>
+
+  <line x1="565" y1="169" x2="565" y2="292" stroke="#33424d" stroke-width="2" marker-end="url(#ah-ink)"/>
+  <text x="573" y="235" font-size="11" fill="#5b646b">hold &amp; write calls</text>
+
+  <line x1="440" y1="337" x2="328" y2="337" stroke="#14854f" stroke-width="2" marker-end="url(#ah-green)"/>
+  <text x="384" y="328" font-size="11" font-weight="700" fill="#14854f" text-anchor="middle">called away</text>
+
+  <line x1="195" y1="300" x2="195" y2="177" stroke="#33424d" stroke-width="2" marker-end="url(#ah-ink)"/>
+  <text x="187" y="240" font-size="11" fill="#5b646b" text-anchor="end">restart</text>
+
+  <!-- "expires OTM, repeat" self-loops -->
+  <path d="M300,95 C330,55 360,55 360,90" fill="none" stroke="#14854f" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#ah-green)"/>
+  <text x="372" y="74" font-size="10" fill="#14854f">put expires OTM &#8594; keep premium, repeat</text>
+
+  <path d="M460,374 C430,414 400,414 400,379" fill="none" stroke="#14854f" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#ah-green)"/>
+  <text x="170" y="402" font-size="10" fill="#14854f">call expires OTM &#8594; keep premium, write again</text>
+
+  <text x="30" y="452" font-size="11" fill="#5b646b">The trap to avoid: a name that craters and stays down &#8212; then covered-call strikes sit below cost basis. Pick low-drawdown / mean-reverting stocks.</text>
+</svg>

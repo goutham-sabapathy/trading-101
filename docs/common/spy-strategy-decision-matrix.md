@@ -5,6 +5,8 @@ parent: "SPY-Specific"
 
 # SPY Strategy Decision Matrix (Rule-Based)
 
+> Educational reference for a deterministic matrix that selects a SPY options structure from trend, volatility regime, and event risk.
+
 ## Purpose
 A deterministic matrix for selecting SPY options strategy based on:
 
@@ -114,3 +116,10 @@ Capital preservation takes priority over opportunity capture.
 - Use this matrix to select structure, not to force trades.
 - If market state is ambiguous, reduce size or do not trade.
 - Validate thresholds with historical testing and periodic recalibration.
+
+## Related References
+
+- [SPY Recommendation Engine Rulebook](./spy-recommendation-engine-rulebook.md) — code logic that implements this matrix
+- [Trading Strategies](./trading-strategies.md) — mechanics of each named structure
+- [Regime Detection](./regime-detection.md) — regime overlay on strategy choice
+- [Glossary](./glossary.md) — trend, vol-regime, structure terms

@@ -1,8 +1,15 @@
+---
+title: "Wheel Strategy Playbook"
+parent: "Strategy Playbooks"
+---
+
 # Wheel Strategy Playbook (CSP → Covered Call)
 
 > Educational reference for running the Wheel: sell cash-secured puts on a stock you'd own; if assigned, sell covered calls against the shares until called away; repeat. Income comes from premium in every phase. The put-selling leg is covered in depth by the [Cash-Secured Put Playbook](./cash-secured-put-playbook.md) — this doc covers the **full loop, wheel-specific stock selection, the covered-call leg, and assignment handling**.
 
 ## The Loop
+
+![The Wheel income loop: sell a cash-secured put, get assigned into 100 shares, sell covered calls until called away, then repeat — collecting premium at every step](./assets/wheel-loop-cycle.svg)
 
 ```
 1. Sell CSP  ──(expires OTM)──► keep premium, repeat step 1
