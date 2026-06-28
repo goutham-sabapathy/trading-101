@@ -32,7 +32,7 @@ the same mechanism as the strategy builder. To add one:
 - **No CDN / external requests** — embed assets as `data:` URIs. (Avoid the Google-Fonts
   CDN the strategy builder uses; prefer a system-font stack so the page works offline.)
 - **No YAML front matter in the `.html`** — this guarantees Jekyll copies it verbatim and
-  never runs it through Liquid (so `{{` / `{%` in your JS stays intact).
+  never runs it through Liquid templating, so curly-brace template syntax in your JS stays intact.
 
 > Why here and not the GitHub Wiki? The Wiki sanitizes JavaScript, so interactive
 > artifacts won't run there. Pages serves them live, under the same PR review as the docs.
