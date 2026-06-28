@@ -1,0 +1,13 @@
+title: Trading-101
+description: A focused trading reference — basics, acronyms, strategies, and best practices.
+remote_theme: just-the-docs/just-the-docs@v0.12.0
+plugins:
+  - jekyll-remote-theme
+search_enabled: true
+heading_anchors: true
+color_scheme: dark
+aux_links:
+  "GitHub":
+    - "https://github.com/goutham-sabapathy/trading-101"
+# Artifacts and the strategy-builder app are self-contained static HTML.
+# They have no YAML front matter, so Jekyll copies them verbatim (no Liquid processing).
