@@ -1,3 +1,8 @@
+---
+title: "Risk and Position Sizing"
+parent: "Risk & Discipline"
+---
+
 # Risk and Position Sizing (Generic)
 
 ## Trade-Level Controls

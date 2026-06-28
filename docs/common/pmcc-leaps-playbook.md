@@ -1,3 +1,8 @@
+---
+title: "LEAPS + PMCC Playbook"
+parent: "Strategy Playbooks"
+---
+
 # LEAPS + PMCC Playbook (Poor Man's Covered Call)
 
 > Educational reference for selecting and managing a Poor Man's Covered Call — a long **call diagonal**: own a deep-ITM LEAPS call as a stock substitute, and sell shorter-dated OTM calls against it for income. It is a **leveraged bullish** position; it makes money when the underlying grinds **up or sideways** and bleeds in downtrends. Only run it on names you are genuinely long-term bullish on.

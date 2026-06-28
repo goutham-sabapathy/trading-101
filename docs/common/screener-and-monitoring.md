@@ -1,3 +1,8 @@
+---
+title: "Screener & Monitoring"
+parent: "Strategy Playbooks"
+---
+
 # Screener & Monitoring Checklist
 
 > Educational reference for picking candidates for the [LEAPS + PMCC](./pmcc-leaps-playbook.md) and [Wheel](./wheel-playbook.md) strategies, evaluating them for a long-term commitment, and tracking what can hurt an open position. The two strategies want **different stocks**, so this starts with two separate screens.

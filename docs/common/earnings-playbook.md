@@ -1,3 +1,8 @@
+---
+title: "Earnings Playbook"
+parent: "Strategy Playbooks"
+---
+
 # Earnings Playbook (Generic)
 
 > Educational reference for analyzing earnings events and selecting strategy by historical pattern, not just IV environment.

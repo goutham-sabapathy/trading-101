@@ -1,3 +1,8 @@
+---
+title: "Glossary"
+parent: "Foundations"
+---
+
 # Trading Glossary (Generic)
 
 > Educational reference. Definitions describe concepts in their most common usage; specific platforms or strategies may use them more narrowly.

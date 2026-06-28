@@ -1,3 +1,8 @@
+---
+title: "Opening-Range Breakout"
+parent: "Strategy Playbooks"
+---
+
 # Opening-Range Breakout (Session Range)
 
 Quick visual reference. SPY-specific options version: [SPY ORB Options Playbook](./spy-orb-options-playbook.md). Term in the [Glossary](./glossary.md).

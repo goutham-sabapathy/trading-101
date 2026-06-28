@@ -1,3 +1,8 @@
+---
+title: "SPY Strategy Decision Matrix"
+parent: "SPY-Specific"
+---
+
 # SPY Strategy Decision Matrix (Rule-Based)
 
 ## Purpose

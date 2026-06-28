@@ -1,3 +1,8 @@
+---
+title: "Trading Strategies"
+parent: "Foundations"
+---
+
 # Trading Strategies (Generic Reference)
 
 ## Purpose

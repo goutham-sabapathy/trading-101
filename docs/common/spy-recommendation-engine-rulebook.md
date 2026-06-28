@@ -1,3 +1,8 @@
+---
+title: "SPY Recommendation Engine Rulebook"
+parent: "SPY-Specific"
+---
+
 # SPY Recommendation Engine Rulebook (Deterministic)
 
 ## Purpose

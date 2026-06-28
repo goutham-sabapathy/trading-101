@@ -1,3 +1,8 @@
+---
+title: "SPY Premarket Trend Bias Engine"
+parent: "SPY-Specific"
+---
+
 # SPY Premarket Trend Bias Engine
 
 Rule-based, calculation-only, IBKR-first, and incremental by design.
