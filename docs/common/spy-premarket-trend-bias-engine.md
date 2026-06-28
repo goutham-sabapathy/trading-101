@@ -5,6 +5,8 @@ parent: "SPY-Specific"
 
 # SPY Premarket Trend Bias Engine
 
+> Educational reference for a rule-based, calculation-only SPY premarket bias engine that scores trend, internals, and breadth.
+
 Rule-based, calculation-only, IBKR-first, and incremental by design.
 
 ## Objective
@@ -315,3 +317,10 @@ Only after logging at least 30 sessions:
 If price structure, internals, and heavyweights align, the bias quality materially improves.
 
 Do not over-engineer before validating Phase 1-3 across enough sessions.
+
+## Related References
+
+- [Market Internals](./market-internals.md) — TICK, ADD, TRIN, VIX context
+- [SPY Strategy Decision Matrix](./spy-strategy-decision-matrix.md) — turn bias into structure
+- [Tools Comparison](./tools-comparison.md) — IBKR vs TradingView tradeoffs
+- [Glossary](./glossary.md) — VWAP, internals, regime terms

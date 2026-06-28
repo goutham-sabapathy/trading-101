@@ -5,11 +5,13 @@ parent: "Market Context & Internals"
 
 # Regime Detection (Markov Framework)
 
-> Generic educational reference for using Markov-style regime models as a filter on top of a strategy selection process.
+> Educational reference for using Markov-style regime models as a filter on top of a strategy selection process.
 
 ## Concept
 
 Markets shift between persistent statistical *regimes* — typically labeled **Bull**, **Bear**, **Sideways** — where return distributions, correlations, and volatility levels are materially different. Selling premium in a sticky Bear regime is one of the most common ways to blow up an options book; the same trade in a Bull regime can be the best risk-adjusted setup on the board. A regime model is a filter for choosing the **right strategy family for the current state**.
+
+![Market regime state machine: Bull, Sideways, and Bear states with transition arrows between them and self-loops for persistence; a high self-loop probability marks a sticky regime, and sticky Bear triggers the hard gate against bullish premium selling](./assets/regime-state-machine.svg)
 
 ## Labeling Returns
 
@@ -129,8 +131,9 @@ A regime model with negative walk-forward Sharpe is not a filter — it's noise.
 - **Past persistence ≠ future persistence.** Regime models are descriptive of the training period; structural breaks (policy shifts, mega-cap dominance changes) can invalidate them.
 - **Backtests are historical, not forward-looking.** Always pair the regime overlay with defined-risk structures so the model failing doesn't take down the book.
 
-## See Also
+## Related References
 
 - [Trading Strategies](./trading-strategies.md) — strategy families filtered by this matrix
 - [Indicators Reference](./indicators.md) — regime indicators in the broader indicator panel
 - [Risk and Position Sizing](./risk-and-position-sizing.md) — sizing rules that consume the scalar
+- [Glossary](./glossary.md) — regime and Markov terms

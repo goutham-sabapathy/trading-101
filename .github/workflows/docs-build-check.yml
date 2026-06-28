@@ -1,0 +1,26 @@
+name: docs-build-check
+
+# Pages has no PR preview, so this builds the docs the same way GitHub Pages does
+# (actions/jekyll-build-pages uses the github-pages gem + jekyll-remote-theme) and
+# fails the PR on any Liquid/YAML/theme error before it can reach the live site.
+
+on:
+  pull_request:
+    paths:
+      - "docs/**"
+      - ".github/workflows/docs-build-check.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Build with Jekyll (same as GitHub Pages)
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./docs
+          destination: ./_site

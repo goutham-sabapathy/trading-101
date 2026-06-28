@@ -5,6 +5,8 @@ parent: "Market Context & Internals"
 
 # Tools Comparison (Generic)
 
+> Educational reference comparing brokerage, data, and backtesting tools for trading research.
+
 ## Brokerage / Execution APIs
 
 | Tool | Strengths | Constraints | Best Use |
@@ -33,3 +35,10 @@ parent: "Market Context & Internals"
 For this repo stage:
 - Start with Python research stack + broker/API data.
 - Keep adapters so data vendors can be swapped later.
+
+## Related References
+
+- [Data Sources](./data-sources.md) — data categories and curation standards
+- [Screener & Monitoring](./screener-and-monitoring.md) — where these tools get used
+- [Indicators Reference](./indicators.md) — what the tools must compute
+- [Glossary](./glossary.md) — data and options terms

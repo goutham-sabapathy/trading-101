@@ -5,6 +5,8 @@ parent: "Foundations"
 
 # Trading Strategies (Generic Reference)
 
+> Educational reference for options strategy families, named vertical spreads, and when each is generally considered.
+
 ## Purpose
 This document summarizes strategy families and when they are generally considered.
 
@@ -171,3 +173,11 @@ Same strike, different expiries (sell front, buy back). Profits from front-month
 | High-Vol Expected | Long straddle, Long strangle | Long strangle | (avoid — premium is rich) |
 
 > See [Regime Detection](./regime-detection.md) for how to overlay a Markov regime filter on this matrix.
+
+## Related References
+
+- [Regime Detection](./regime-detection.md) — Markov overlay on the IV/direction matrix
+- [Indicators Reference](./indicators.md) — IV, skew, and regime inputs
+- [Cash-Secured Put Playbook](./cash-secured-put-playbook.md) — income-strategy deep dive
+- [Risk and Position Sizing](./risk-and-position-sizing.md) — defined-risk and sizing rules
+- [Glossary](./glossary.md) — spread and structure definitions

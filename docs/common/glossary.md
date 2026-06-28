@@ -148,3 +148,10 @@ See [Market Structure: CHoCH vs BOS](./market-structure-choch-bos.md) for diagra
 - `Time Stop`: Exit rule based on calendar/DTE, not P&L (e.g., "close all credit spreads at 21 DTE regardless").
 - `Profit Target`: Mechanical exit at a percentage of max profit (commonly 50% for credit spreads).
 - `Stop Loss`: Mechanical exit at a percentage of max loss or credit received (commonly −150% to −200% of credit).
+
+## Related References
+
+- [Indicators Reference](./indicators.md) — the indicators these terms describe
+- [Trading Strategies](./trading-strategies.md) — named structures in detail
+- [Regime Detection](./regime-detection.md) — regime and Markov concepts
+- [Earnings Playbook](./earnings-playbook.md) — earnings-event terminology in use
